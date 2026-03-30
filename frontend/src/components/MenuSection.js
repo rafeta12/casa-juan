@@ -32,8 +32,8 @@ const MenuSection = () => {
     { id: 'postres', label: t('menu.postres') }
   ];
 
-  const filteredItems = Array.isArray(menuItems)
-  ? menuItems.filter(item => item.category === activeCategory)
+  const filteredItems = Array.isArray(menuItems?.[activeCategory])
+  ? menuItems[activeCategory]
   : [];
 
   const formatPrice = (price) => {
