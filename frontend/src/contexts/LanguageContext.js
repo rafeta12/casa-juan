@@ -30,21 +30,8 @@ const translations = {
     reservation: {
       title: "Reserva Tu Mesa",
       subtitle: "Te esperamos con los brazos abiertos",
-      name: "Nombre completo",
-      email: "Correo electrónico",
-      phone: "Teléfono",
-      date: "Fecha",
-      time: "Hora",
-      guests: "Comensales",
-      notes: "Notas especiales (alergias, ocasión...)",
-      submit: "Confirmar Reserva",
-      success: "¡Reserva confirmada!",
-      successMessage: "Te hemos enviado un email de confirmación.",
-      selectDate: "Selecciona una fecha",
-      selectTime: "Selecciona hora",
-      selectGuests: "Número de personas",
-      person: "persona",
-      people: "personas"
+      callText: "Llámanos para reservar tu mesa. Estaremos encantados de atenderte.",
+      hoursNote: "Mar-Sáb: 12:00-15:30 y 19:00-22:00"
     },
     faq: {
       title: "Preguntas Frecuentes",
@@ -110,21 +97,8 @@ const translations = {
     reservation: {
       title: "Book Your Table",
       subtitle: "We're waiting for you with open arms",
-      name: "Full name",
-      email: "Email address",
-      phone: "Phone number",
-      date: "Date",
-      time: "Time",
-      guests: "Guests",
-      notes: "Special notes (allergies, occasion...)",
-      submit: "Confirm Reservation",
-      success: "Reservation confirmed!",
-      successMessage: "We've sent you a confirmation email.",
-      selectDate: "Select a date",
-      selectTime: "Select time",
-      selectGuests: "Number of guests",
-      person: "person",
-      people: "people"
+      callText: "Call us to book your table. We'll be happy to assist you.",
+      hoursNote: "Tue-Sat: 12:00-15:30 and 19:00-22:00"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -190,21 +164,8 @@ const translations = {
     reservation: {
       title: "Reservieren Sie Ihren Tisch",
       subtitle: "Wir erwarten Sie mit offenen Armen",
-      name: "Vollständiger Name",
-      email: "E-Mail-Adresse",
-      phone: "Telefonnummer",
-      date: "Datum",
-      time: "Uhrzeit",
-      guests: "Gäste",
-      notes: "Besondere Hinweise (Allergien, Anlass...)",
-      submit: "Reservierung Bestätigen",
-      success: "Reservierung bestätigt!",
-      successMessage: "Wir haben Ihnen eine Bestätigungs-E-Mail gesendet.",
-      selectDate: "Datum auswählen",
-      selectTime: "Uhrzeit auswählen",
-      selectGuests: "Anzahl der Gäste",
-      person: "Person",
-      people: "Personen"
+      callText: "Rufen Sie uns an, um Ihren Tisch zu reservieren. Wir helfen Ihnen gerne.",
+      hoursNote: "Di-Sa: 12:00-15:30 und 19:00-22:00"
     },
     faq: {
       title: "Häufig Gestellte Fragen",
