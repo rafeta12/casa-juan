@@ -23,9 +23,16 @@ const translations = {
     menu: {
       title: "Nuestra Carta",
       subtitle: "Platos tradicionales con el sabor de siempre",
-      starters: "Entrantes",
-      mains: "Platos Principales",
-      desserts: "Postres"
+      panes: "Panes",
+      entrantes: "Entrantes",
+      ensaladas: "Ensaladas",
+      carnes: "Carnes",
+      pescados: "Pescados",
+      papas: "Papas",
+      postres: "Postres Caseros",
+      halfPortion: "1/2 Rac.",
+      fullPortion: "Ración",
+      askPrice: "Consultar"
     },
     reservation: {
       title: "Reserva Tu Mesa",
@@ -90,9 +97,16 @@ const translations = {
     menu: {
       title: "Our Menu",
       subtitle: "Traditional dishes with timeless flavor",
-      starters: "Starters",
-      mains: "Main Courses",
-      desserts: "Desserts"
+      panes: "Breads",
+      entrantes: "Starters",
+      ensaladas: "Salads",
+      carnes: "Meats",
+      pescados: "Seafood",
+      papas: "Potatoes",
+      postres: "Homemade Desserts",
+      halfPortion: "1/2 Port.",
+      fullPortion: "Portion",
+      askPrice: "Ask"
     },
     reservation: {
       title: "Book Your Table",
@@ -157,9 +171,16 @@ const translations = {
     menu: {
       title: "Unsere Speisekarte",
       subtitle: "Traditionelle Gerichte mit zeitlosem Geschmack",
-      starters: "Vorspeisen",
-      mains: "Hauptgerichte",
-      desserts: "Nachspeisen"
+      panes: "Brote",
+      entrantes: "Vorspeisen",
+      ensaladas: "Salate",
+      carnes: "Fleisch",
+      pescados: "Meeresfrüchte",
+      papas: "Kartoffeln",
+      postres: "Hausgemachte Desserts",
+      halfPortion: "1/2 Port.",
+      fullPortion: "Portion",
+      askPrice: "Fragen"
     },
     reservation: {
       title: "Reservieren Sie Ihren Tisch",

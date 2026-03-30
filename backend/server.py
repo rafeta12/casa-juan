@@ -62,70 +62,60 @@ class MenuItem(BaseModel):
 # ==================== MENU DATA ====================
 
 MENU_ITEMS = [
-    {
-        "id": "1",
-        "name": {"es": "Papas Arrugadas con Mojo", "en": "Wrinkled Potatoes with Mojo Sauce", "de": "Runzelkartoffeln mit Mojo-Sauce"},
-        "description": {"es": "Papas canarias con mojo rojo y verde", "en": "Canarian potatoes with red and green mojo", "de": "Kanarische Kartoffeln mit roter und grüner Mojo"},
-        "price": 6.50,
-        "category": "starters",
-        "image": None
-    },
-    {
-        "id": "2",
-        "name": {"es": "Gofio Escaldado", "en": "Scalded Gofio", "de": "Gebrühter Gofio"},
-        "description": {"es": "Tradicional gofio con caldo de pescado", "en": "Traditional gofio with fish broth", "de": "Traditioneller Gofio mit Fischbrühe"},
-        "price": 7.00,
-        "category": "starters",
-        "image": None
-    },
-    {
-        "id": "3",
-        "name": {"es": "Carne Fiesta", "en": "Fiesta Meat", "de": "Fiesta-Fleisch"},
-        "description": {"es": "Cerdo marinado a la canaria", "en": "Canarian marinated pork", "de": "Kanarisch mariniertes Schweinefleisch"},
-        "price": 12.50,
-        "category": "mains",
-        "image": None
-    },
-    {
-        "id": "4",
-        "name": {"es": "Conejo en Salmorejo", "en": "Rabbit in Salmorejo", "de": "Kaninchen in Salmorejo"},
-        "description": {"es": "Conejo guisado al estilo canario", "en": "Canarian-style stewed rabbit", "de": "Kanarisches Kanincheneintopf"},
-        "price": 14.00,
-        "category": "mains",
-        "image": None
-    },
-    {
-        "id": "5",
-        "name": {"es": "Sancocho Canario", "en": "Canarian Sancocho", "de": "Kanarischer Sancocho"},
-        "description": {"es": "Pescado salado con papas y mojo", "en": "Salted fish with potatoes and mojo", "de": "Salzfisch mit Kartoffeln und Mojo"},
-        "price": 13.50,
-        "category": "mains",
-        "image": None
-    },
-    {
-        "id": "6",
-        "name": {"es": "Chuletas de Cerdo", "en": "Pork Chops", "de": "Schweinekoteletts"},
-        "description": {"es": "Chuletas a la plancha con papas", "en": "Grilled chops with potatoes", "de": "Gegrillte Koteletts mit Kartoffeln"},
-        "price": 11.00,
-        "category": "mains",
-        "image": None
-    },
-    {
-        "id": "7",
-        "name": {"es": "Bienmesabe", "en": "Bienmesabe (Almond Dessert)", "de": "Bienmesabe (Mandeldessert)"},
-        "description": {"es": "Postre canario de almendras", "en": "Canarian almond dessert", "de": "Kanarisches Mandeldessert"},
-        "price": 5.00,
-        "category": "desserts",
-        "image": None
-    },
-    {
-        "id": "8",
-        "name": {"es": "Frangollo", "en": "Frangollo", "de": "Frangollo"},
-        "description": {"es": "Postre tradicional de maíz", "en": "Traditional corn pudding", "de": "Traditioneller Maispudding"},
-        "price": 4.50,
-        "category": "desserts",
-        "image": None
-    }
+    # PANES
+    {"id": "1", "name": {"es": "Pan de la casa", "en": "House bread", "de": "Hausbrot"}, "half": None, "full": 0.80, "category": "panes"},
+    {"id": "2", "name": {"es": "Pan con ajo", "en": "Garlic bread", "de": "Knoblauchbrot"}, "half": 1.80, "full": 2.50, "category": "panes"},
+    {"id": "3", "name": {"es": "Pan Catalana (tomate, ajo, aceite de oliva)", "en": "Catalan bread (tomato, garlic, olive oil)", "de": "Katalanisches Brot (Tomate, Knoblauch, Olivenöl)"}, "half": 1.80, "full": 2.50, "category": "panes"},
+    {"id": "4", "name": {"es": "Pan, tomate, jamón ibérico Badajoz", "en": "Bread, tomato, Iberian ham Badajoz", "de": "Brot, Tomate, Ibérico-Schinken Badajoz"}, "half": 3.50, "full": 6.00, "category": "panes"},
+    {"id": "5", "name": {"es": "Pan con tomate y manchego curado", "en": "Bread with tomato and cured manchego", "de": "Brot mit Tomate und gereiftem Manchego"}, "half": 3.50, "full": 6.00, "category": "panes"},
+    {"id": "6", "name": {"es": "Pan con tomate, manchego e ibérico", "en": "Bread with tomato, manchego and Iberian ham", "de": "Brot mit Tomate, Manchego und Ibérico"}, "half": 4.00, "full": 7.00, "category": "panes"},
+    # ENTRANTES
+    {"id": "7", "name": {"es": "Ensaladilla rusa", "en": "Russian salad", "de": "Russischer Salat"}, "half": 4.00, "full": 6.00, "category": "entrantes"},
+    {"id": "8", "name": {"es": "Queso blanco de Guía de Isora", "en": "White cheese from Guía de Isora", "de": "Weißkäse aus Guía de Isora"}, "half": 5.00, "full": 8.00, "category": "entrantes"},
+    {"id": "9", "name": {"es": "Queso manchego curado", "en": "Cured manchego cheese", "de": "Gereifter Manchego-Käse"}, "half": 7.00, "full": 10.50, "category": "entrantes"},
+    {"id": "10", "name": {"es": "Queso blanco a la plancha con mojos o arándanos", "en": "Grilled white cheese with mojos or blueberries", "de": "Gegrillter Weißkäse mit Mojos oder Heidelbeeren"}, "half": None, "full": 9.50, "category": "entrantes"},
+    {"id": "11", "name": {"es": "Croquetas mixtas (pollo, bonito, jamón, espinaca)", "en": "Mixed croquettes (chicken, tuna, ham, spinach)", "de": "Gemischte Kroketten (Huhn, Thunfisch, Schinken, Spinat)"}, "half": 5.00, "full": 7.00, "category": "entrantes"},
+    {"id": "12", "name": {"es": "Champiñones empanados rellenos de almogrote", "en": "Breaded mushrooms stuffed with almogrote", "de": "Panierte Pilze gefüllt mit Almogrote"}, "half": 6.00, "full": 9.00, "category": "entrantes"},
+    {"id": "13", "name": {"es": "Gambas al ajillo", "en": "Garlic prawns", "de": "Knoblauchgarnelen"}, "half": None, "full": 9.90, "category": "entrantes"},
+    {"id": "14", "name": {"es": "Tabla de jamón ibérico con tostas con tomate", "en": "Iberian ham board with tomato toasts", "de": "Ibérico-Schinkenplatte mit Tomatentoasts"}, "half": 12.50, "full": 18.00, "category": "entrantes"},
+    {"id": "15", "name": {"es": "Pimientos de Padrón", "en": "Padrón peppers", "de": "Padrón-Paprika"}, "half": 5.00, "full": 8.00, "category": "entrantes"},
+    {"id": "16", "name": {"es": "Caracoles", "en": "Snails", "de": "Schnecken"}, "half": 7.00, "full": 11.00, "category": "entrantes"},
+    # ENSALADAS
+    {"id": "17", "name": {"es": "Ensalada mixta", "en": "Mixed salad", "de": "Gemischter Salat"}, "half": None, "full": 6.00, "category": "ensaladas"},
+    {"id": "18", "name": {"es": "Ensalada de atún", "en": "Tuna salad", "de": "Thunfischsalat"}, "half": None, "full": 7.00, "category": "ensaladas"},
+    {"id": "19", "name": {"es": "Ensalada de la casa", "en": "House salad", "de": "Haussalat"}, "half": None, "full": 8.50, "category": "ensaladas"},
+    # CARNES
+    {"id": "20", "name": {"es": "Entrecot añojo", "en": "Yearling entrecote", "de": "Jungstier-Entrecôte"}, "half": None, "full": 15.00, "category": "carnes"},
+    {"id": "21", "name": {"es": "Carne fiesta", "en": "Fiesta meat", "de": "Fiesta-Fleisch"}, "half": None, "full": 11.90, "category": "carnes"},
+    {"id": "22", "name": {"es": "Ternera en salsa", "en": "Beef in sauce", "de": "Rindfleisch in Sauce"}, "half": 8.50, "full": 13.00, "category": "carnes"},
+    {"id": "23", "name": {"es": "Albóndigas con papas fritas", "en": "Meatballs with fries", "de": "Fleischbällchen mit Pommes"}, "half": 6.00, "full": 9.90, "category": "carnes"},
+    {"id": "24", "name": {"es": "Pechuga de pollo empanada (ensalada y papas fritas)", "en": "Breaded chicken breast (salad and fries)", "de": "Panierte Hähnchenbrust (Salat und Pommes)"}, "half": None, "full": 9.90, "category": "carnes"},
+    {"id": "25", "name": {"es": "Alitas de pollo con papas fritas", "en": "Chicken wings with fries", "de": "Hähnchenflügel mit Pommes"}, "half": 5.00, "full": 8.00, "category": "carnes"},
+    {"id": "26", "name": {"es": "Salchichas con papas fritas", "en": "Sausages with fries", "de": "Würstchen mit Pommes"}, "half": 5.00, "full": 8.00, "category": "carnes"},
+    {"id": "27", "name": {"es": "Lingote de vaca madurada (220 gramos)", "en": "Aged beef ingot (220 grams)", "de": "Gereiftes Rindfleisch (220 Gramm)"}, "half": None, "full": 17.00, "category": "carnes"},
+    # PESCADOS
+    {"id": "28", "name": {"es": "Pulpo a la gallega", "en": "Galician-style octopus", "de": "Galizischer Oktopus"}, "half": 13.00, "full": 19.00, "category": "pescados"},
+    {"id": "29", "name": {"es": "Pulpo a la canaria", "en": "Canarian-style octopus", "de": "Kanarischer Oktopus"}, "half": 13.00, "full": 19.00, "category": "pescados"},
+    {"id": "30", "name": {"es": "Chopitos fritos", "en": "Fried baby squid", "de": "Frittierte Baby-Tintenfische"}, "half": 6.50, "full": 9.90, "category": "pescados"},
+    {"id": "31", "name": {"es": "Calamares a la andaluza", "en": "Andalusian-style squid", "de": "Andalusische Calamares"}, "half": 7.00, "full": 12.00, "category": "pescados"},
+    {"id": "32", "name": {"es": "Chipirones a la plancha", "en": "Grilled baby squid", "de": "Gegrillte Baby-Tintenfische"}, "half": 7.00, "full": 12.00, "category": "pescados"},
+    {"id": "33", "name": {"es": "Chocos a la plancha con papas arrugadas y ensalada", "en": "Grilled cuttlefish with wrinkled potatoes and salad", "de": "Gegrillte Sepien mit Runzelkartoffeln und Salat"}, "half": 8.00, "full": 13.00, "category": "pescados"},
+    {"id": "34", "name": {"es": "Atún a la plancha con papas arrugadas y ensalada", "en": "Grilled tuna with wrinkled potatoes and salad", "de": "Gegrillter Thunfisch mit Runzelkartoffeln und Salat"}, "half": 7.50, "full": 10.50, "category": "pescados"},
+    {"id": "35", "name": {"es": "Bacalao a la portuguesa", "en": "Portuguese-style cod", "de": "Kabeljau auf portugiesische Art"}, "half": 9.90, "full": 17.00, "category": "pescados"},
+    {"id": "36", "name": {"es": "Pescado a la espalda", "en": "Fish on the back", "de": "Fisch auf dem Rücken"}, "half": None, "full": 14.50, "category": "pescados"},
+    {"id": "37", "name": {"es": "Parrilla de pescado y mariscos (mín. 2 pers.)", "en": "Fish and seafood grill (min. 2 pers.)", "de": "Fisch- und Meeresfrüchtegrill (mind. 2 Pers.)"}, "half": None, "full": 42.00, "category": "pescados"},
+    {"id": "38", "name": {"es": "Fritura de pescado y mariscos (mín. 2 pers.)", "en": "Fried fish and seafood (min. 2 pers.)", "de": "Frittierte Fisch und Meeresfrüchte (mind. 2 Pers.)"}, "half": None, "full": 44.00, "category": "pescados"},
+    {"id": "39", "name": {"es": "Zamburiñas a la plancha", "en": "Grilled scallops", "de": "Gegrillte Jakobsmuscheln"}, "half": 9.90, "full": 18.00, "category": "pescados"},
+    {"id": "40", "name": {"es": "Navajas a la plancha", "en": "Grilled razor clams", "de": "Gegrillte Schwertmuscheln"}, "half": 6.00, "full": 9.90, "category": "pescados"},
+    {"id": "41", "name": {"es": "Langostinos a la plancha", "en": "Grilled king prawns", "de": "Gegrillte Riesengarnelen"}, "half": 6.00, "full": 10.90, "category": "pescados"},
+    {"id": "42", "name": {"es": "Gambón a la plancha (unidad)", "en": "Grilled large prawn (unit)", "de": "Gegrillte Großgarnele (Stück)"}, "half": None, "full": 2.00, "category": "pescados"},
+    # PAPAS
+    {"id": "43", "name": {"es": "Papas fritas", "en": "French fries", "de": "Pommes frites"}, "half": None, "full": None, "category": "papas"},
+    {"id": "44", "name": {"es": "Papas arrugadas", "en": "Wrinkled potatoes", "de": "Runzelkartoffeln"}, "half": 2.50, "full": 4.00, "category": "papas"},
+    {"id": "45", "name": {"es": "Huevos rotos con papas fritas", "en": "Broken eggs with fries", "de": "Zerbrochene Eier mit Pommes"}, "half": None, "full": 8.00, "category": "papas"},
+    # POSTRES CASEROS
+    {"id": "46", "name": {"es": "Quesillo", "en": "Quesillo (flan)", "de": "Quesillo (Flan)"}, "half": None, "full": 4.00, "category": "postres"},
+    {"id": "47", "name": {"es": "Tiramisú", "en": "Tiramisu", "de": "Tiramisu"}, "half": None, "full": 4.50, "category": "postres"},
 ]
 
 # ==================== ROUTES ====================
