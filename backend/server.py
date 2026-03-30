@@ -1,15 +1,14 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from typing import List, Optional
 import uuid
-from datetime import datetime, timezone
-
+from datetime import datetime, timezone, date
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -19,54 +18,172 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
+# Create the main app
 app = FastAPI()
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# ==================== MODELS ====================
 
-# Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
+class ReservationCreate(BaseModel):
+    name: str
+    email: EmailStr
+    phone: str
+    date: str  # ISO format date
+    time: str
+    guests: int
+    notes: Optional[str] = ""
+    language: str = "es"
+
+class Reservation(BaseModel):
+    model_config = ConfigDict(extra="ignore")
     
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    name: str
+    email: EmailStr
+    phone: str
+    date: str
+    time: str
+    guests: int
+    notes: Optional[str] = ""
+    language: str = "es"
+    status: str = "pending"
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+class MenuItem(BaseModel):
+    id: str
+    name: dict  # {"es": "...", "en": "...", "de": "..."}
+    description: dict
+    price: float
+    category: str
+    image: Optional[str] = None
 
-# Add your routes to the router instead of directly to app
+# ==================== MENU DATA ====================
+
+MENU_ITEMS = [
+    {
+        "id": "1",
+        "name": {"es": "Papas Arrugadas con Mojo", "en": "Wrinkled Potatoes with Mojo Sauce", "de": "Runzelkartoffeln mit Mojo-Sauce"},
+        "description": {"es": "Papas canarias con mojo rojo y verde", "en": "Canarian potatoes with red and green mojo", "de": "Kanarische Kartoffeln mit roter und grüner Mojo"},
+        "price": 6.50,
+        "category": "starters",
+        "image": "https://images.pexels.com/photos/33389174/pexels-photo-33389174.jpeg"
+    },
+    {
+        "id": "2",
+        "name": {"es": "Gofio Escaldado", "en": "Scalded Gofio", "de": "Gebrühter Gofio"},
+        "description": {"es": "Tradicional gofio con caldo de pescado", "en": "Traditional gofio with fish broth", "de": "Traditioneller Gofio mit Fischbrühe"},
+        "price": 7.00,
+        "category": "starters",
+        "image": None
+    },
+    {
+        "id": "3",
+        "name": {"es": "Carne Fiesta", "en": "Fiesta Meat", "de": "Fiesta-Fleisch"},
+        "description": {"es": "Cerdo marinado a la canaria", "en": "Canarian marinated pork", "de": "Kanarisch mariniertes Schweinefleisch"},
+        "price": 12.50,
+        "category": "mains",
+        "image": None
+    },
+    {
+        "id": "4",
+        "name": {"es": "Conejo en Salmorejo", "en": "Rabbit in Salmorejo", "de": "Kaninchen in Salmorejo"},
+        "description": {"es": "Conejo guisado al estilo canario", "en": "Canarian-style stewed rabbit", "de": "Kanarisches Kanincheneintopf"},
+        "price": 14.00,
+        "category": "mains",
+        "image": None
+    },
+    {
+        "id": "5",
+        "name": {"es": "Sancocho Canario", "en": "Canarian Sancocho", "de": "Kanarischer Sancocho"},
+        "description": {"es": "Pescado salado con papas y mojo", "en": "Salted fish with potatoes and mojo", "de": "Salzfisch mit Kartoffeln und Mojo"},
+        "price": 13.50,
+        "category": "mains",
+        "image": "https://images.pexels.com/photos/2992882/pexels-photo-2992882.jpeg"
+    },
+    {
+        "id": "6",
+        "name": {"es": "Chuletas de Cerdo", "en": "Pork Chops", "de": "Schweinekoteletts"},
+        "description": {"es": "Chuletas a la plancha con papas", "en": "Grilled chops with potatoes", "de": "Gegrillte Koteletts mit Kartoffeln"},
+        "price": 11.00,
+        "category": "mains",
+        "image": None
+    },
+    {
+        "id": "7",
+        "name": {"es": "Bienmesabe", "en": "Bienmesabe (Almond Dessert)", "de": "Bienmesabe (Mandeldessert)"},
+        "description": {"es": "Postre canario de almendras", "en": "Canarian almond dessert", "de": "Kanarisches Mandeldessert"},
+        "price": 5.00,
+        "category": "desserts",
+        "image": None
+    },
+    {
+        "id": "8",
+        "name": {"es": "Frangollo", "en": "Frangollo", "de": "Frangollo"},
+        "description": {"es": "Postre tradicional de maíz", "en": "Traditional corn pudding", "de": "Traditioneller Maispudding"},
+        "price": 4.50,
+        "category": "desserts",
+        "image": None
+    }
+]
+
+# ==================== ROUTES ====================
+
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Casa Juan API"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
+@api_router.get("/menu", response_model=List[dict])
+async def get_menu():
+    return MENU_ITEMS
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
+@api_router.post("/reservations", response_model=Reservation)
+async def create_reservation(reservation: ReservationCreate):
+    reservation_obj = Reservation(
+        name=reservation.name,
+        email=reservation.email,
+        phone=reservation.phone,
+        date=reservation.date,
+        time=reservation.time,
+        guests=reservation.guests,
+        notes=reservation.notes,
+        language=reservation.language
+    )
     
-    # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
+    doc = reservation_obj.model_dump()
+    await db.reservations.insert_one(doc)
     
-    return status_checks
+    return reservation_obj
 
-# Include the router in the main app
+@api_router.get("/reservations", response_model=List[Reservation])
+async def get_reservations():
+    reservations = await db.reservations.find({}, {"_id": 0}).to_list(1000)
+    return reservations
+
+@api_router.get("/reservations/{reservation_id}", response_model=Reservation)
+async def get_reservation(reservation_id: str):
+    reservation = await db.reservations.find_one({"id": reservation_id}, {"_id": 0})
+    if not reservation:
+        raise HTTPException(status_code=404, detail="Reservation not found")
+    return reservation
+
+@api_router.delete("/reservations/{reservation_id}")
+async def cancel_reservation(reservation_id: str):
+    result = await db.reservations.delete_one({"id": reservation_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Reservation not found")
+    return {"message": "Reservation cancelled"}
+
+# Time slots for reservations
+@api_router.get("/time-slots")
+async def get_time_slots():
+    return {
+        "lunch": ["12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00"],
+        "dinner": ["19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"]
+    }
+
+# Include the router
 app.include_router(api_router)
 
 app.add_middleware(
