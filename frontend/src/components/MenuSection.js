@@ -102,19 +102,19 @@ const MenuSection = () => {
           ))}
         </div>
 
-        {/* Featured Images Bento */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="col-span-2 md:col-span-2 aspect-[16/9] overflow-hidden">
+        {/* Featured Images Bento - Restaurant Interior */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="aspect-[16/9] overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/33389174/pexels-photo-33389174.jpeg"
-              alt="Spanish tapas"
+              src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/wlyqzsih_image.png"
+              alt="Terraza Casa Juan"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="aspect-square overflow-hidden">
+          <div className="aspect-[16/9] overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/2992882/pexels-photo-2992882.jpeg"
-              alt="Spanish toast"
+              src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/5d915sh5_image.png"
+              alt="Interior Casa Juan"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>

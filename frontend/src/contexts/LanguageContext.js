@@ -64,7 +64,8 @@ const translations = {
       address: "Dirección",
       phone: "Teléfono",
       hours: "Horario",
-      hoursValue: "Lun-Dom: 12:00 - 22:00"
+      hoursValue: "Mar-Sáb: 12:00-15:30, 19:00-22:00",
+      closed: "Lunes y Domingo: Cerrado"
     },
     footer: {
       cta: "¿Tienes hambre?",
@@ -143,7 +144,8 @@ const translations = {
       address: "Address",
       phone: "Phone",
       hours: "Hours",
-      hoursValue: "Mon-Sun: 12:00 - 22:00"
+      hoursValue: "Tue-Sat: 12:00-15:30, 19:00-22:00",
+      closed: "Monday and Sunday: Closed"
     },
     footer: {
       cta: "Hungry?",
@@ -222,7 +224,8 @@ const translations = {
       address: "Adresse",
       phone: "Telefon",
       hours: "Öffnungszeiten",
-      hoursValue: "Mo-So: 12:00 - 22:00"
+      hoursValue: "Di-Sa: 12:00-15:30, 19:00-22:00",
+      closed: "Montag und Sonntag: Geschlossen"
     },
     footer: {
       cta: "Hungrig?",

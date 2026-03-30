@@ -78,6 +78,9 @@ const ContactSection = () => {
                 <p className="text-[#59554F]">
                   {t('contact.hoursValue')}
                 </p>
+                <p className="text-[#C05A46] text-sm font-medium mt-1">
+                  {t('contact.closed')}
+                </p>
               </div>
             </div>
 

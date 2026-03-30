@@ -42,7 +42,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex justify-center md:justify-start">
               <img 
-                src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/zvo7wsms_image.png"
+                src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/t05fono0_image.png"
                 alt="Casa Juan"
                 className="h-12 w-auto"
               />

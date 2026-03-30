@@ -136,7 +136,7 @@ const ReservationSection = () => {
           {/* Image */}
           <div className="aspect-[4/3] lg:aspect-auto lg:h-full min-h-[400px] overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/3633990/pexels-photo-3633990.jpeg"
+              src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/5d915sh5_image.png"
               alt="Restaurant interior"
               className="w-full h-full object-cover"
             />

@@ -50,15 +50,15 @@ const WhySection = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="aspect-[3/4] overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3633990/pexels-photo-3633990.jpeg"
-                alt="Restaurant interior"
+                src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/wlyqzsih_image.png"
+                alt="Terraza del restaurante"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="aspect-[3/4] overflow-hidden mt-8">
               <img 
-                src="https://images.pexels.com/photos/2992882/pexels-photo-2992882.jpeg"
-                alt="Spanish food"
+                src="https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/5d915sh5_image.png"
+                alt="Interior del restaurante"
                 className="w-full h-full object-cover"
               />
             </div>

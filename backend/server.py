@@ -68,7 +68,7 @@ MENU_ITEMS = [
         "description": {"es": "Papas canarias con mojo rojo y verde", "en": "Canarian potatoes with red and green mojo", "de": "Kanarische Kartoffeln mit roter und grüner Mojo"},
         "price": 6.50,
         "category": "starters",
-        "image": "https://images.pexels.com/photos/33389174/pexels-photo-33389174.jpeg"
+        "image": None
     },
     {
         "id": "2",
@@ -100,7 +100,7 @@ MENU_ITEMS = [
         "description": {"es": "Pescado salado con papas y mojo", "en": "Salted fish with potatoes and mojo", "de": "Salzfisch mit Kartoffeln und Mojo"},
         "price": 13.50,
         "category": "mains",
-        "image": "https://images.pexels.com/photos/2992882/pexels-photo-2992882.jpeg"
+        "image": None
     },
     {
         "id": "6",
@@ -175,12 +175,25 @@ async def cancel_reservation(reservation_id: str):
         raise HTTPException(status_code=404, detail="Reservation not found")
     return {"message": "Reservation cancelled"}
 
-# Time slots for reservations
+# Time slots for reservations - Restaurant hours: Tue-Sat 12:00-15:30, 19:00-22:00
 @api_router.get("/time-slots")
 async def get_time_slots():
     return {
         "lunch": ["12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00"],
-        "dinner": ["19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"]
+        "dinner": ["19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+    }
+
+# Get opening hours
+@api_router.get("/hours")
+async def get_hours():
+    return {
+        "monday": {"closed": True},
+        "tuesday": {"lunch": "12:00-15:30", "dinner": "19:00-22:00"},
+        "wednesday": {"lunch": "12:00-15:30", "dinner": "19:00-22:00"},
+        "thursday": {"lunch": "12:00-15:30", "dinner": "19:00-22:00"},
+        "friday": {"lunch": "12:00-15:30", "dinner": "19:00-22:00"},
+        "saturday": {"lunch": "12:00-15:30", "dinner": "19:00-22:00"},
+        "sunday": {"closed": True}
     }
 
 # Include the router

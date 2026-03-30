@@ -20,7 +20,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1724279840151-be7bc472bc4d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxtZWRpdGVycmFuZWFuJTIwZm9vZCUyMGRpbmluZ3xlbnwwfHx8fDE3NzQ4MzQ0ODh8MA&ixlib=rb-4.1.0&q=85)'
+          backgroundImage: 'url(https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/wlyqzsih_image.png)'
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
