@@ -133,6 +133,15 @@ html {
     background-color: var(--bg-secondary);
 }
 
+/* Hide Emergent badge */
+[data-testid="emergent-badge"],
+.emergent-badge,
+div[class*="emergent"],
+iframe[src*="emergent"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 @layer base {
     [data-debug-wrapper="true"] {
         display: contents !important;
