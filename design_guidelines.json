@@ -1,0 +1,118 @@
+{
+  "design_system": {
+    "theme": "light",
+    "archetype": "Archetype 1 (Organic & Earthy)",
+    "concept": "Rustic Elegance - Elevating the traditional homemade Canarian food experience into a highly sensory, deeply textured digital journey. Evokes the warmth of the Mediterranean, terracotta clay, and fresh ingredients.",
+    "colors": {
+      "background": {
+        "primary": "#F9F6F0",
+        "secondary": "#F2EDE4",
+        "dark_surface": "#1A1A1A"
+      },
+      "text": {
+        "primary": "#2C2A26",
+        "secondary": "#59554F",
+        "on_dark": "#F9F6F0"
+      },
+      "brand": {
+        "primary": "#C05A46",
+        "primary_hover": "#A34A38",
+        "accent_sage": "#7A8B76"
+      },
+      "border": {
+        "default": "#E5DFD3",
+        "focus": "#C05A46"
+      }
+    },
+    "typography": {
+      "rules": "The Anti-Default Rule: Never use Inter or generic sans for headings.",
+      "fonts": {
+        "heading": "Cormorant Garamond, serif",
+        "body": "Outfit, sans-serif"
+      },
+      "hierarchy": {
+        "h1": "text-5xl md:text-6xl tracking-tighter leading-none font-medium",
+        "h2": "text-4xl md:text-5xl tracking-tight leading-tight font-medium",
+        "h3": "text-2xl md:text-3xl tracking-tight font-medium",
+        "body": "text-base md:text-lg leading-relaxed text-[#59554F]",
+        "label": "text-xs uppercase tracking-[0.2em] font-bold text-[#C05A46]"
+      }
+    },
+    "spacing_and_layout": {
+      "generous_spacing": "Use p-8 to p-24 for section padding to create breathing room.",
+      "grid_strategy": "The Bento Grid (Mode A) for the Menu Highlights and About sections to create asymmetry. Avoid perfectly symmetrical Bootstrap columns.",
+      "borders": "Flat solid surfaces with 1px subtle borders (#E5DFD3). NO glassmorphism for this earthy theme."
+    }
+  },
+  "media_urls": {
+    "logo": {
+      "url": "https://customer-assets.emergentagent.com/job_casa-juan-mesa/artifacts/zvo7wsms_image.png",
+      "description": "White cursive letters 'Casa Juan' on black background. Placement: Header and Footer. IMPORTANT: Since the logo has a black background, the Header and Footer MUST have a matching deep black/charcoal background (#1A1A1A or #000000) so the logo blends seamlessly."
+    },
+    "hero_image": {
+      "url": "https://images.unsplash.com/photo-1724279840151-be7bc472bc4d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxtZWRpdGVycmFuZWFuJTIwZm9vZCUyMGRpbmluZ3xlbnwwfHx8fDE3NzQ4MzQ0ODh8MA&ixlib=rb-4.1.0&q=85",
+      "description": "A beautiful table spread with plates and bowls of food, capturing the Mediterranean dining vibe."
+    },
+    "interior_vibe": {
+      "url": "https://images.pexels.com/photos/3633990/pexels-photo-3633990.jpeg",
+      "description": "Inviting rustic bistro interior featuring wooden chairs and warm charm."
+    },
+    "food_highlight_1": {
+      "url": "https://images.pexels.com/photos/33389174/pexels-photo-33389174.jpeg",
+      "description": "Vibrant spread of Spanish tapas (patatas bravas, bread with tomato) on a table."
+    },
+    "food_highlight_2": {
+      "url": "https://images.pexels.com/photos/2992882/pexels-photo-2992882.jpeg",
+      "description": "Delicious Spanish toast topped with ham and cheese served outdoors."
+    }
+  },
+  "pages": [
+    {
+      "name": "Landing Page",
+      "sections": [
+        {
+          "name": "Navigation Header",
+          "details": "Sticky dark header (bg-[#1A1A1A]) to seamlessly blend the black-background logo. Links in white/off-white. Multi-language selector (ES/EN/DE) as a clean text dropdown. CTA button 'Reservar' in Terracotta (#C05A46)."
+        },
+        {
+          "name": "Hero Section",
+          "details": "Full width or large bento hero. Use 'hero_image' with a maximum bg-black/40 overlay. Headline: 'Auténtica Comida Casera Canaria' (or language equivalent). High contrast text, elegant serif."
+        },
+        {
+          "name": "Trust & Stats Ribbon",
+          "details": "A horizontal bar or bento section highlighting: 4.7⭐ Rating, 1900+ Reseñas, and 'Precio: 10-20€'. Use the 'Accent Sage' color for the stars to feel organic, not harsh yellow."
+        },
+        {
+          "name": "Menu Highlights",
+          "details": "Asymmetrical grid showcasing 'food_highlight_1' and 'food_highlight_2'. List a few iconic Canarian dishes with prices. Use generous negative space."
+        },
+        {
+          "name": "Reservation System (Interactive)",
+          "details": "Split layout: Left side 'interior_vibe' image. Right side: Interactive Shadcn Calendar & Form. Use pure solid background (#F2EDE4) for the form container with 1px border. Input fields must have high contrast focus states."
+        },
+        {
+          "name": "Location & FAQ",
+          "details": "Google Maps embed for 'Av. Viera y Clavijo, 12, Adeje'. Contact info (Phone: 922 78 16 35). A short, elegant FAQ section using Shadcn Accordion."
+        },
+        {
+          "name": "Footer",
+          "details": "Dark background (#1A1A1A) to match the logo. Massive typography for a final 'Let's Talk' or 'Te Esperamos' CTA. Simple navigation links."
+        }
+      ]
+    }
+  ],
+  "components_and_tech": {
+    "shadcn_overrides": "Do not use default Shadcn styles. Override Calendar, Select (for language), Input, and Accordion with terracotta focus rings and earthy rounded corners (rounded-none or rounded-md, not massive pills).",
+    "icons": "Use 'lucide-react' with a thin stroke-width (1.5) for elegance.",
+    "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='lang-selector', data-testid='reserve-button', data-testid='reservation-calendar')."
+  },
+  "instructions_to_main_agent": [
+    "Install and use 'Cormorant Garamond' and 'Outfit' fonts from Google Fonts via next/font or standard import.",
+    "Implement the dark header (#1A1A1A) to camouflage the black background of the provided PNG logo perfectly.",
+    "The Hero overlay should be minimal (max bg-black/40) to let the food imagery shine.",
+    "Use pure HTML/Tailwind for the asymmetrical bento layouts; only use Shadcn for the Calendar, Select (Language), and Forms.",
+    "Ensure the Reservation system contains a real interactive calendar (Shadcn Calendar component) and time slot selection, plus email/name fields. Mock the email confirmation submission flow but make the UI robust.",
+    "Embed Google Maps pointing to 'Av. Viera y Clavijo, 12, Adeje, Santa Cruz de Tenerife, Spain'.",
+    "Add Multi-language state (ES, EN, DE). At minimum, mock the translation toggling for key headings to show functionality."
+  ]
+}
