@@ -85,6 +85,10 @@ const Header = () => {
                 <SelectItem value="es" className="text-[#F9F6F0] focus:bg-[#C05A46]">ES</SelectItem>
                 <SelectItem value="en" className="text-[#F9F6F0] focus:bg-[#C05A46]">EN</SelectItem>
                 <SelectItem value="de" className="text-[#F9F6F0] focus:bg-[#C05A46]">DE</SelectItem>
+                <SelectItem value="pl" className="text-[#F9F6F0] focus:bg-[#C05A46]">PL</SelectItem>
+                <SelectItem value="it" className="text-[#F9F6F0] focus:bg-[#C05A46]">IT</SelectItem>
+                <SelectItem value="pt" className="text-[#F9F6F0] focus:bg-[#C05A46]">PT</SelectItem>
+                <SelectItem value="ru" className="text-[#F9F6F0] focus:bg-[#C05A46]">RU</SelectItem>
               </SelectContent>
             </Select>
 
