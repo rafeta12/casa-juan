@@ -3,7 +3,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 // ── DATOS DEL MENÚ ──────────────────────────────────────────────────────────
 // Edita aquí los platos directamente, sin necesidad de backend.
-const MENU_DATA = [
  const MENU_DATA = [
   // PANES
   { id: 1, category: 'panes', name: { es: 'Pan de la casa', en: 'House bread' }, half: null, full: 0.80 },
