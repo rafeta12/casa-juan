@@ -57,7 +57,7 @@ import { useLanguage } from '../contexts/LanguageContext';
   { id: 54, category: 'pescados', name: { es: 'Gambón a la plancha', en: 'Grilled large prawn' }, half: null, full: 2.00 },
 
   // PAPAS
-  { id: 60, category: 'papas', name: { es: 'Papas fritas', en: 'French fries' }, half: null, full: null },
+  { id: 60, category: 'papas', name: { es: 'Papas fritas', en: 'French fries' }, half: 2.50, full: 4.00 },
   { id: 61, category: 'papas', name: { es: 'Papas arrugadas', en: 'Wrinkled potatoes' }, half: 2.50, full: 4.00 },
   { id: 62, category: 'papas', name: { es: 'Huevos rotos con papas fritas', en: 'Broken eggs with fries' }, half: null, full: 8.00 },
 
